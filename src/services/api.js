@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:5000/api" 
+  baseURL: "https://pendrive-backend-h0n3.onrender.com/api/" 
 });
 
 // Register pendrive (admin / testing)
