@@ -2,7 +2,7 @@ import { useState } from "react";
 import { verifyOtp } from "../services/api";
 import '../pages/Home.css';
 
-const OTPForm = ({ pendriveId }) => {
+const OTPForm = ({ token }) => {
   const [otp, setOtp] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -11,7 +11,7 @@ const OTPForm = ({ pendriveId }) => {
     setLoading(true);
 
     try {
-      const res = await verifyOtp({ pendriveId, otp });
+      const res = await verifyOtp({ token, otp });
       if (res.data.accessGranted) {
         alert("Access Granted ✅");
       }

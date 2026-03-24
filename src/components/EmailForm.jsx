@@ -2,7 +2,7 @@ import { useState } from "react";
 import { verifyEmail } from "../services/api";
 import '../pages/Home.css';
 
-const EmailForm = ({ pendriveId, onOtpSent }) => {
+const EmailForm = ({ token , onOtpSent }) => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -12,7 +12,7 @@ const EmailForm = ({ pendriveId, onOtpSent }) => {
 
     setLoading(true);
     try {
-      await verifyEmail({ pendriveId, email });
+      await verifyEmail({ token, email });
       onOtpSent();
     } catch (err) {
       alert("Email not authorized");
